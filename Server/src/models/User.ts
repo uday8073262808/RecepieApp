@@ -1,27 +1,21 @@
 import e from "express";
-import mongoose, {Document, Schema} from "mongoose";
-
-
-
+import mongoose, { Document, Schema } from "mongoose";
 
 export interface IUser extends Document {
-    email : string;
-    password : string;
+  email: string;
+  password: string;
 }
 
-
-
 const UserSchema = new Schema<IUser>({
-    email : {
-        type : String,
-        required : true,
-        unique : true
-    },
-    password : {
-        type : String,
-        required : true,
-        
-    }
-})
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+});
 
 export default mongoose.model<IUser>("User", UserSchema);
