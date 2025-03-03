@@ -1,8 +1,15 @@
+//index.ts
+
+
+
+
 import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
 import connectToDB from "./db/db";
 import cors from "cors";
 import authRoutes from "./routes/auth";
+import recipeRoutes from "./routes/recipes";
+
 
 
 
@@ -16,6 +23,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use ("/api/auth", authRoutes);
+app.use ("/api/recipe", recipeRoutes);
 
 
 

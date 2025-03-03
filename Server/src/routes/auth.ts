@@ -1,3 +1,8 @@
+//auth.ts
+
+
+
+
 import express, { Request, Response, Router } from 'express';
 import User from '../models/User';
 import bcrypt from 'bcrypt';
@@ -55,7 +60,7 @@ router.post('/login', async (req: Request, res: Response): Promise<Response> => 
     }
 
     // Generate JWT token
-    const token = jwt.sign({ email: user.email, id: user._id }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user._id, email: user.email  }, process.env.JWT_SECRET, {
       expiresIn: "1h"
     });
 
